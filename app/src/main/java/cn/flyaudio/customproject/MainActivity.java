@@ -20,8 +20,10 @@ import cn.flyaudio.baselibrary.ModuleConfig;
  * @author wydnn
  */
 @RouterAnno(
+
         host = ModuleConfig.App.NAME,
         path = ModuleConfig.App.MAINACTIVITYPATH
+
 )
 public class MainActivity extends AppCompatActivity {
 

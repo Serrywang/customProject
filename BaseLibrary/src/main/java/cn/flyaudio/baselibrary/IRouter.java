@@ -2,7 +2,8 @@ package cn.flyaudio.baselibrary;
 
 import android.content.Context;
 
-import com.xiaojinzi.component.anno.router.HostAndPathAnno;
+import com.xiaojinzi.component.anno.router.HostAnno;
+import com.xiaojinzi.component.anno.router.PathAnno;
 import com.xiaojinzi.component.anno.router.RouterApiAnno;
 
 /**
@@ -11,9 +12,10 @@ import com.xiaojinzi.component.anno.router.RouterApiAnno;
  * @author wydnn
  */
 @RouterApiAnno()
+@HostAnno(ModuleConfig.App.NAME)
 public interface IRouter {
 
-    @HostAndPathAnno(ModuleConfig.App.CONTROLACTIVITYPATH)
+    @PathAnno(ModuleConfig.App.CONTROLACTIVITYPATH)
     void toControlActivity(Context context);
 
 }
