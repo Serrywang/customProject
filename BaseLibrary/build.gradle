@@ -12,23 +12,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["HOST": "base"]
-            }
-        }
-
         compileOptions {
 
             targetCompatibility JavaVersion.VERSION_1_8
             sourceCompatibility JavaVersion.VERSION_1_8
 
         }
-
-
-
         vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
 
     }
 
@@ -53,7 +48,6 @@ android {
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     //support
     api deps.support.app_compat
     api deps.support.recyclerview
@@ -91,9 +85,7 @@ dependencies {
     // codec 提供base64
     implementation 'commons-codec:commons-codec:1.10'
     // 依赖组件
-    api 'com.github.xiaojinzi123.Component:component-impl:1.7.2.1'
-    annotationProcessor "com.github.xiaojinzi123.Component:component-compiler:1.7.2.1"
-
+   // api 'com.github.xiaojinzi123.Component:component-impl:1.7.2.1'
     //test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

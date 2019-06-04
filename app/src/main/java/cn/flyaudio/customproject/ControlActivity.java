@@ -5,17 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.xiaojinzi.component.anno.RouterAnno;
-import cn.flyaudio.baselibrary.ModuleConfig;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
  * @author wydnn
  */
-@RouterAnno(
-        host = ModuleConfig.App.NAME,
-        path = ModuleConfig.App.CONTROLACTIVITYPATH
-)
+@Route(path ="/app/controlActivity")
 public class ControlActivity extends AppCompatActivity {
     /**
      * 跳转按钮
@@ -52,6 +48,9 @@ public class ControlActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                ARouter.getInstance().build("/app/mainActivity")
+                        .navigation();
+
             }
         });
 
@@ -66,4 +65,5 @@ public class ControlActivity extends AppCompatActivity {
         tv_Text = findViewById(R.id.tv_Text);
 
     }
+
 }

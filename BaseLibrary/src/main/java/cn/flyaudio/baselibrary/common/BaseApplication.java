@@ -59,7 +59,11 @@ public class BaseApplication extends Application {
             ARouter.openLog();
 
         }
+
         ARouter.init(this);
+        ARouter.getInstance().inject(this);
+        ARouter.printStackTrace();
+
     }
 
     /**

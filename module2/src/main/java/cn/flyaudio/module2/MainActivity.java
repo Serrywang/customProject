@@ -1,4 +1,4 @@
-package cn.flyaudio.customproject;
+package cn.flyaudio.module2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,54 +9,44 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 
-/**
- * @author wydnn
- */
 
 /**
- * 模块名以及路径
  * @author wydnn
  */
-@Route(path = "/app/mainActivity")
+@Route(path = "/test2/MainActivity")
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnNotification;
+    private Button bt_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.module2_activity_main);
+       //ToastUtils.showShort("test2Activity");
         initView();
         initEvent();
-
     }
 
-    /**
-     * 初始化点击事件
-     */
     private void initEvent() {
-        // 通知
-        btnNotification.setOnClickListener(new View.OnClickListener() {
+
+        bt_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//              ARouter.getInstance().build("/ok/mainActivity")
-//                     .navigation();
-
-                ARouter.getInstance().build("/test2/MainActivity")
+                ARouter.getInstance().build("/ok/mainActivity")
                         .navigation();
 
             }
         });
+
     }
+
     /**
      * 初始化视图
      */
     private void initView() {
 
-        btnNotification = findViewById(R.id.btn_notification);
+        bt_search = findViewById(R.id.bt_search);
 
     }
-
 }

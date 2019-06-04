@@ -1,11 +1,12 @@
 package cn.flyaudio.Utils;
 
 
-import com.xiaojinzi.component.ComponentConfig;
-import com.xiaojinzi.component.impl.application.ModuleManager;
+
+
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import cn.flyaudio.baselibrary.BuildConfig;
-import cn.flyaudio.baselibrary.ModuleConfig;
+
 import cn.flyaudio.baselibrary.common.BaseApplication;
 
 /**
@@ -34,19 +35,19 @@ public class MyApplication extends BaseApplication {
         super.onCreate();
         myApplication = this;
         // 初始化ComponentConfig
-        ComponentConfig.init(this,true);
+
         // 框架还带有检查重复的路由和重复的拦截器等功能，debug的时候开启它
+        //你試試
         if(BuildConfig.DEBUG){
-
-            ModuleManager.getInstance().check();
-
+            
         }
         // 装载各个业务组件
-        ModuleManager.getInstance().registerArr(
-
-                ModuleConfig.App.NAME,ModuleConfig.Module1.NAME
-
-        );
+//        ModuleManager.getInstance().registerArr(
+//
+//                ModuleConfig.App.NAME,ModuleConfig.Module1.NAME
+//
+//        );
+        ARouter.init(this); // 尽可能早，推荐在Application中初始化
     }
 
 }
